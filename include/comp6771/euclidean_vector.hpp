@@ -4,6 +4,7 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 namespace comp6771 {
 	class euclidean_vector_error : public std::runtime_error {
@@ -14,12 +15,23 @@ namespace comp6771 {
 
 	class euclidean_vector {
 	public:
-		// TODO
+		// 1. Constructors
+		euclidean_vector();
+		explicit euclidean_vector(int);
+		euclidean_vector(int, double);
+		euclidean_vector(std::vector<double>::const_iterator, std::vector<double>::const_iterator);
+		euclidean_vector(std::initializer_list<double>);
+		euclidean_vector(euclidean_vector const&);
+		euclidean_vector(euclidean_vector&&) noexcept;
+		// 2. Destructor
+		~euclidean_vector() = default;
+
 	private:
 		// ass2 spec requires we use std::unique_ptr<double[]>
 		// NOLINTNEXTLINE(modernize-avoid-c-arrays)
 		std::unique_ptr<double[]> magnitude_;
-		// TODO more if needed
+		int dimension_;
+		double norm_;
 	};
 } // namespace comp6771
 #endif // COMP6771_EUCLIDEAN_VECTOR_HPP
