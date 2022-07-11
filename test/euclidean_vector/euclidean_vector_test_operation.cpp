@@ -290,13 +290,13 @@ TEST_CASE("/=") {
 	SECTION("exception check") {
 		REQUIRE_THROWS_WITH(a /= 0, "Invalid vector division by 0");
 	}
-	SECTION("diving int") {
+	SECTION("dividing int") {
 		a /= 1;
 		CHECK(v0 == static_cast<std::vector<double>>(a));
 		a /= 2;
 		CHECK(v1 == static_cast<std::vector<double>>(a));
 	}
-	SECTION("multiplying double") {
+	SECTION("dividing double") {
 		a /= 2.5;
 		CHECK(v2 == static_cast<std::vector<double>>(a));
 	}
